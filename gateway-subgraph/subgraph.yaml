@@ -1,0 +1,29 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Gateway
+    network: cypherstage
+    source:
+      address: "0xAF25431c071461311aD227b1f2c6eBBD380768A6"
+      abi: Gateway
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - EventDecryption
+        - ResultCallback
+      abis:
+        - name: Gateway
+          file: ./abis/Gateway.json
+      eventHandlers:
+        - event: EventDecryption(indexed uint256,uint256[],address,bytes4,uint256,uint256,bool)
+          handler: handleEventDecryption
+        - event: ResultCallback(indexed uint256,bool,bytes)
+          handler: handleResultCallback
+      file: ./src/gateway.ts

@@ -1,0 +1,22 @@
+type EventDecryption @entity {
+  id: ID! #requestID
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  cts: [BigInt!]!
+  contractCaller: Bytes!
+  callbackSelector: Bytes!
+  msgValue: BigInt!
+  maxTimestamp: BigInt!
+  passSignaturesToCaller: Boolean!
+  resultCallback: ResultCallback @derivedFrom(field: "eventDecryption")
+}
+
+type ResultCallback @entity {
+  id: ID! #txHash + index
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  requestID: BigInt!
+  success: Boolean!
+  result: Bytes!
+  eventDecryption: EventDecryption!
+}

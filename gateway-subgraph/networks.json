@@ -1,0 +1,9 @@
+{
+  "cypherstage": {
+    "host": "http://46.101.206.70:8050",
+    "Gateway": {
+      "address": "0x9DBFCe465E564379d5474f19dafeB010AdF71f7A",
+      "startBlock": 0
+    }
+  }
+}

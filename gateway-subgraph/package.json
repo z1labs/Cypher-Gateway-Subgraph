@@ -1,0 +1,20 @@
+{
+  "name": "gateway",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "graph codegen && graph build",
+    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ gateway",
+    "create-local": "graph create --node http://46.101.206.70:8020/ gateway",
+    "remove-local": "graph remove --node http://46.101.206.70:8020/ gateway",
+    "deploy-local": "graph deploy --node http://46.101.206.70:8020/ --ipfs http://46.101.206.70:5001 gateway",
+    "test": "graph test"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.90.1",
+    "@graphprotocol/graph-ts": "0.32.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "matchstick-as": "0.5.0"
+  }
+}
